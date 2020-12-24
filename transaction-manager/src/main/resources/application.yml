@@ -1,0 +1,25 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/postgres}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:postgres}
+  jpa:
+    properties:
+      hibernate:
+        default_schema: blockchain_schema
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        temp:
+          use_jdbc_metadata_defaults: false
+    show-sql: true
+
+app:
+  auth:
+    register-redirect: /au/signup/confirm
+    register-success-redirect: /
+    recovery-redirect: /au/recovery/confirm
+    change-password-redirect: /au/password-change/confirm
+    token-secret: 926D96C90030DD58429D2751AC1BDBBC
+    token-expiration-msec: 864000000
